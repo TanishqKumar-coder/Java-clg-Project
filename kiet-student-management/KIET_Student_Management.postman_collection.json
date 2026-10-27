@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "KIET Student Academic Management REST API",
+    "description": "Collection of all REST API endpoints for KIET Spring Boot Coding Assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Q3.A - Get All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Q3.B - Get Student by ID (101 - Success)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/101",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "101"]
+        }
+      }
+    },
+    {
+      "name": "Q3.B - Get Student by ID (999 - Not Found)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "999"]
+        }
+      }
+    },
+    {
+      "name": "Q4 - Add New Student (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"studentId\": 106,\n    \"name\": \"Amit Kumar\",\n    \"email\": \"amit@kiet.edu\",\n    \"branch\": \"CSE(AI)\",\n    \"year\": 2,\n    \"cgpa\": 8.75\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Q5.A - Update Student (PUT 101)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"studentId\": 101,\n    \"name\": \"Rahul Sharma\",\n    \"email\": \"rahul@kiet.edu\",\n    \"branch\": \"CSE(AI & ML)\",\n    \"year\": 3,\n    \"cgpa\": 9.05\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/students/101",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "101"]
+        }
+      }
+    },
+    {
+      "name": "Q5.B - Delete Student (DELETE 105 - Success)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/105",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "105"]
+        }
+      }
+    },
+    {
+      "name": "Q5.B - Delete Student (DELETE 999 - Not Found)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "999"]
+        }
+      }
+    },
+    {
+      "name": "Q6.A - Search by Branch and Year",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/search?branch=CSE&year=2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "search"],
+          "query": [
+            {
+              "key": "branch",
+              "value": "CSE"
+            },
+            {
+              "key": "year",
+              "value": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Q6.B - Find Toppers by CGPA",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students/topper?cgpa=9.0",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students", "topper"],
+          "query": [
+            {
+              "key": "cgpa",
+              "value": "9.0"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
